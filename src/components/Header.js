@@ -5,7 +5,9 @@ function Header() {
     const styles = {
 
         heading: {
-            fontFamily: "futura"
+            fontFamily: "futura",
+            marginBottom: ".5px",
+            marginLeft: "10px"
         }
     }
 
@@ -13,6 +15,7 @@ function Header() {
     return (
         <div>
             <h1 style={styles.heading}> Adena Marom </h1>
+            <h4 style={styles.heading}> Full Stack Web Development</h4>
         </div>
     )
 

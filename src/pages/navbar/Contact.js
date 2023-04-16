@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
+
 
 
 const Contact = () => {
@@ -8,6 +10,26 @@ const Contact = () => {
   const [emailError, setEmailError] = useState("");
   const [emptyFieldError, setEmptyFieldError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  const styles = {
+    border: {
+      border: "solid",
+      marginLeft: "400px",
+      marginRight: "400px",
+      height: "400px",
+    },
+    text: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "10vh"
+    },
+    label: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }
 
   const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
@@ -42,41 +64,44 @@ const Contact = () => {
       {submitted ? (
         <div>Thank you for your submission!</div>
       ) : (
-    
-    <div>
-      <h3>Contact</h3>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-            {emailError && <div style={{ color: "red" }}>{emailError}</div>}
-        </label>
-        <br />
-        <label>
-          Message:
-          <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-        {emptyFieldError && <div style={{ color: "red" }}>{emptyFieldError}</div>}
-      </form>
-    </div>
+        <div style={styles.border}  >
+          <h2 style={styles.text}>Contact</h2>
+
+          <form onSubmit={handleSubmit}>
+            <label style={styles.label}>
+            <h3>Name:</h3>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+            <br />
+            <label style={styles.label}>
+              <h3>Email:</h3>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              {emailError && <div style={{ color: "red" }}>{emailError}</div>}
+            </label>
+            <br />
+            <label style={styles.label}>
+            <h3>Message:</h3>
+              <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
+            </label>
+            <br />
+            <div style={styles.label}>
+            <Button variant="primary" as="input" type="submit" value="Submit" />{' '}
+            </div>
+            
+            {emptyFieldError && <div style={{ color: "red" }}>{emptyFieldError}</div>}
+          </form>
+        </div>
       )}
-      </>
+    </>
   );
 }
 export default Contact;

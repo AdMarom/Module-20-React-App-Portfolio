@@ -6,17 +6,29 @@ const About = () => {
   const styles ={
     image: {
       width: "75px",
-      height: "auto"
+      height: "auto",
+    },
+    imageDiv: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "10vh"
+    },
+    message: {
+      textAlign: "center",
+      marginLeft: "250px",
+      marginRight: "250px"
     }
   }
 
   return (
     <div>
       <div>
-        <div >
+        <div style={styles.imageDiv} >
         <img style={styles.image} src={Avatar} alt="avatar" />
         </div>
-        <p>
+
+        <p style={styles.message} >
           Greetings!
           <br></br> 
           Thank you for taking the time to review my portfolio and get to know me. I am based in California, but I am willing to relocate for the right opportunity.
